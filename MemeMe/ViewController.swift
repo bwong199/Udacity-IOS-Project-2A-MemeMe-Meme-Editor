@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var tableView: UITableView!
     
+    var selectedItem: Meme? = nil
     
     var memes : [Meme] = []
     
@@ -25,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-//        makeSampleProduct()
+        //        makeSampleProduct()
         
         
     }
@@ -47,8 +48,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         self.tableView.reloadData()
-
-
+        
+        
     }
     
     
@@ -60,12 +61,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         //        cell.textLabel!.text = product.title
-//        cell.textLabel!.text = "Nike kicks"
+        //        cell.textLabel!.text = "Nike kicks"
         
-                let meme = self.memes[indexPath.row]
-//        
-//        cell.imageView!.image = UIImage(named: "darthvader@2x-iphone.png")
-                cell.imageView!.image = UIImage(data: meme.image!)
+        let meme = self.memes[indexPath.row]
+        //
+        //        cell.imageView!.image = UIImage(named: "darthvader@2x-iphone.png")
+        cell.imageView!.image = UIImage(data: meme.image!)
         
         return cell
     }
@@ -73,34 +74,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.selectedMeme = self.memes[indexPath.row]
+        self.selectedItem = self.memes[indexPath.row]
         
-        self.performSegueWithIdentifier("tableViewToDetailSegue", sender: self)
+        self.performSegueWithIdentifier("showMemeSegue", sender: self)
     }
     
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "addMemeSegue"{
-            segue.destinationViewController as! addMemeController
-            //            detailVC.product = self.selectedProduct
+        if segue.identifier == "showMemeSegue" {
+            
+            let destinationVC =   segue.destinationViewController as! DetailedMemeController
+            
+            destinationVC.meme = self.selectedItem
+            
         }
     }
     
-//    func makeSampleProduct(){
-//        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-//        
-//        let meme = NSEntityDescription.insertNewObjectForEntityForName("Meme", inManagedObjectContext: context) as! Meme
-//        
-//        
-//        meme.image = UIImageJPEGRepresentation(UIImage(named: "darthvader@2x-iphone.png")!, 1)
-//        do {
-//            try context.save()
-//        } catch {
-//            
-//        }
-//    }
+    //    func makeSampleProduct(){
+    //        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    //
+    //        let meme = NSEntityDescription.insertNewObjectForEntityForName("Meme", inManagedObjectContext: context) as! Meme
+    //
+    //
+    //        meme.image = UIImageJPEGRepresentation(UIImage(named: "darthvader@2x-iphone.png")!, 1)
+    //        do {
+    //            try context.save()
+    //        } catch {
+    //            
+    //        }
+    //    }
     
     
 }

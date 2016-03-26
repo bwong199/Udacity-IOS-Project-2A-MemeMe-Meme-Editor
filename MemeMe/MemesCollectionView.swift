@@ -12,11 +12,14 @@ import CoreData
 
 class MemesCollectionView: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate{
     
+    
     @IBOutlet var collectionView: UICollectionView!
     
     let reuseIdentifier = "cell"
+    
     var memes : [Meme] = []
     
+    var selectedItem: Meme? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +54,11 @@ class MemesCollectionView: UIViewController,  UICollectionViewDataSource, UIColl
         //        cell.imageView!.image = UIImage(named: "darthvader@2x-iphone.png")
         cell.myImage!.image = UIImage(data: meme.image!)
         
-
+        
         
         return cell
     }
-
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count
@@ -64,6 +67,21 @@ class MemesCollectionView: UIViewController,  UICollectionViewDataSource, UIColl
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        
+        self.selectedItem = self.memes[indexPath.row]
+        
+        self.performSegueWithIdentifier("showMemeSegue", sender: self)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showMemeSegue" {
+            
+            let destinationVC =   segue.destinationViewController as! DetailedMemeController
+            
+            destinationVC.meme = self.selectedItem
+            
+        }
     }
     
     
