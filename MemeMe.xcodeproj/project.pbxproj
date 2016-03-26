@@ -13,6 +13,10 @@
 		C52A6C7C1CA48F460076BAF4 /* MemeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C52A6C7A1CA48F460076BAF4 /* MemeMe.xcdatamodeld */; };
 		C52A6C7E1CA48F460076BAF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52A6C7D1CA48F460076BAF4 /* Assets.xcassets */; };
 		C52A6C811CA48F460076BAF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52A6C7F1CA48F460076BAF4 /* LaunchScreen.storyboard */; };
+		C52A6C8D1CA4913B0076BAF4 /* addMemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A6C8C1CA4913B0076BAF4 /* addMemeController.swift */; };
+		C52A6C8F1CA4959A0076BAF4 /* darthvader@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C52A6C8E1CA4959A0076BAF4 /* darthvader@2x-iphone.png */; };
+		C5C9C6D31CA5882F004889A5 /* Meme+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9C6D11CA5882F004889A5 /* Meme+CoreDataProperties.swift */; };
+		C5C9C6D41CA5882F004889A5 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C9C6D21CA5882F004889A5 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		C52A6C7D1CA48F460076BAF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C52A6C801CA48F460076BAF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52A6C821CA48F460076BAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C52A6C8C1CA4913B0076BAF4 /* addMemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addMemeController.swift; sourceTree = "<group>"; };
+		C52A6C8E1CA4959A0076BAF4 /* darthvader@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darthvader@2x-iphone.png"; sourceTree = "<group>"; };
+		C5C9C6D11CA5882F004889A5 /* Meme+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Meme+CoreDataProperties.swift"; path = "../Meme+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C5C9C6D21CA5882F004889A5 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meme.swift; path = ../Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +64,12 @@
 		C52A6C721CA48F460076BAF4 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				C5C9C6D11CA5882F004889A5 /* Meme+CoreDataProperties.swift */,
+				C5C9C6D21CA5882F004889A5 /* Meme.swift */,
 				C52A6C731CA48F460076BAF4 /* AppDelegate.swift */,
 				C52A6C751CA48F460076BAF4 /* ViewController.swift */,
+				C52A6C8C1CA4913B0076BAF4 /* addMemeController.swift */,
+				C52A6C8E1CA4959A0076BAF4 /* darthvader@2x-iphone.png */,
 				C52A6C771CA48F460076BAF4 /* Main.storyboard */,
 				C52A6C7D1CA48F460076BAF4 /* Assets.xcassets */,
 				C52A6C7F1CA48F460076BAF4 /* LaunchScreen.storyboard */,
@@ -128,6 +140,7 @@
 			files = (
 				C52A6C811CA48F460076BAF4 /* LaunchScreen.storyboard in Resources */,
 				C52A6C7E1CA48F460076BAF4 /* Assets.xcassets in Resources */,
+				C52A6C8F1CA4959A0076BAF4 /* darthvader@2x-iphone.png in Resources */,
 				C52A6C791CA48F460076BAF4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,8 +153,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C52A6C7C1CA48F460076BAF4 /* MemeMe.xcdatamodeld in Sources */,
+				C5C9C6D31CA5882F004889A5 /* Meme+CoreDataProperties.swift in Sources */,
+				C5C9C6D41CA5882F004889A5 /* Meme.swift in Sources */,
 				C52A6C761CA48F460076BAF4 /* ViewController.swift in Sources */,
 				C52A6C741CA48F460076BAF4 /* AppDelegate.swift in Sources */,
+				C52A6C8D1CA4913B0076BAF4 /* addMemeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +309,7 @@
 				C52A6C871CA48F460076BAF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
