@@ -12,12 +12,12 @@ import CoreData
 class addMemeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var topTextField: UITextField!
-   
+    
     @IBOutlet var bottomTextField: UITextField!
     
     @IBOutlet var imageView: UIImageView!
-
-
+    
+    
     var image: UIImage!
     
     var text1: String!
@@ -33,15 +33,11 @@ class addMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         
     }
     
-  
     @IBAction func addBottomText(sender: AnyObject) {
         topTextField.text = sender.text
         bottomLabel.text = bottomTextField.text
         
     }
-    
-
-    
     
     
     override func viewDidLoad() {
@@ -52,23 +48,14 @@ class addMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
- 
-            topTextField.textColor = UIColor.whiteColor()
-            topTextField.font = UIFont.boldSystemFontOfSize(16)
-            topTextField.sizeToFit()
         
+        topTextField.textColor = UIColor.whiteColor()
+        topTextField.font = UIFont.boldSystemFontOfSize(16)
+        topTextField.sizeToFit()
         
-        
-        
-            bottomTextField.textColor = UIColor.whiteColor()
-            bottomTextField.font = UIFont.boldSystemFontOfSize(16)
-            bottomTextField.sizeToFit()
-
-        
-        
-
-
- 
+        bottomTextField.textColor = UIColor.whiteColor()
+        bottomTextField.font = UIFont.boldSystemFontOfSize(16)
+        bottomTextField.sizeToFit()
         
     }
     
@@ -190,13 +177,16 @@ class addMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         self.view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
+    //    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    //        textField.resignFirstResponder()
+    //
+    //        return true
+    //    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
-    
-    
-    
     
 }
