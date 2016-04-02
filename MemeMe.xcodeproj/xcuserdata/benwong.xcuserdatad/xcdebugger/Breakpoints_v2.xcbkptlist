@@ -74,7 +74,7 @@
                   moduleName = "MemeMe"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/MemeMe/MemeMe/MemesCollectionView.swift"
-                  timestampString = "481259588.110438"
+                  timestampString = "481301698.58534"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -89,7 +89,7 @@
                   moduleName = "MemeMe"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/MemeMe/MemeMe/MemesCollectionView.swift"
-                  timestampString = "481259588.110557"
+                  timestampString = "481301698.585519"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -104,7 +104,7 @@
                   moduleName = "MemeMe"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/benwong/Desktop/IOS/MemeMe/MemeMe/MemesCollectionView.swift"
-                  timestampString = "481259588.110669"
+                  timestampString = "481301698.58568"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -157,6 +157,22 @@
             startingLineNumber = "79"
             endingLineNumber = "79"
             landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe/AddMemeController.swift"
+            timestampString = "481301635.85934"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
