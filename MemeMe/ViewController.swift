@@ -43,9 +43,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             results = nil
         }
         
-        if results != nil {
-            self.memes = results! as! [Meme]
-        }
+//        if results != nil {
+//            self.memes = results! as! [Meme]
+//        }
         
         self.tableView.reloadData()
         
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let meme = self.memes[indexPath.row]
         //
         //        cell.imageView!.image = UIImage(named: "darthvader@2x-iphone.png")
-        cell.imageView!.image = UIImage(data: meme.image!)
+//        cell.imageView!.image = UIImage(data: meme.image!)
         
         return cell
     }

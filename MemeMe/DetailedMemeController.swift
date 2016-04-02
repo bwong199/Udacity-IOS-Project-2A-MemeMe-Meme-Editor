@@ -16,6 +16,6 @@ class DetailedMemeController: UIViewController{
     var meme : Meme? = nil
     
     override func viewDidLoad() {
-        self.imageView.image = UIImage(data: self.meme!.image!)
+//        self.imageView.image = UIImage(data: self.meme!.image!)
     }
 }
