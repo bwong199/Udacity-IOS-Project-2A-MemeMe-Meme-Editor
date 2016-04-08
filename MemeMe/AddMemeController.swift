@@ -32,8 +32,8 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         setUpTextfield()
         
     }
