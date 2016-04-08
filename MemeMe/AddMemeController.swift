@@ -101,7 +101,7 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         if bottomTextField.editing {
-            return keyboardSize.CGRectValue().height/2
+            return keyboardSize.CGRectValue().height
         } else {
             return 0
         }
