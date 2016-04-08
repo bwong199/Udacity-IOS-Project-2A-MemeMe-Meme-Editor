@@ -92,19 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    //    func makeSampleProduct(){
-    //        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    //
-    //        let meme = NSEntityDescription.insertNewObjectForEntityForName("Meme", inManagedObjectContext: context) as! Meme
-    //
-    //
-    //        meme.image = UIImageJPEGRepresentation(UIImage(named: "darthvader@2x-iphone.png")!, 1)
-    //        do {
-    //            try context.save()
-    //        } catch {
-    //            
-    //        }
-    //    }
+
     
     
 }

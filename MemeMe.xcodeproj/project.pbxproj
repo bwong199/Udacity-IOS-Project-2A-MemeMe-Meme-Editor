@@ -27,6 +27,7 @@
 		C58069B11CA71D7E0012CF3F /* table_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = C58069A81CA71D7E0012CF3F /* table_60x60.png */; };
 		C58069B21CA71D7E0012CF3F /* table_90x90.png in Resources */ = {isa = PBXBuildFile; fileRef = C58069A91CA71D7E0012CF3F /* table_90x90.png */; };
 		C58069B41CA7202B0012CF3F /* DetailedMemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58069B31CA7202B0012CF3F /* DetailedMemeController.swift */; };
+		C5B579271CB8080800C32F84 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B579261CB8080800C32F84 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C58069A81CA71D7E0012CF3F /* table_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_60x60.png; sourceTree = "<group>"; };
 		C58069A91CA71D7E0012CF3F /* table_90x90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_90x90.png; sourceTree = "<group>"; };
 		C58069B31CA7202B0012CF3F /* DetailedMemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedMemeController.swift; sourceTree = "<group>"; };
+		C5B579261CB8080800C32F84 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				C52A6C721CA48F460076BAF4 /* MemeMe */,
-				C52A6C711CA48F460076BAF4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +80,7 @@
 				C52A6C701CA48F460076BAF4 /* MemeMe.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C52A6C721CA48F460076BAF4 /* MemeMe */ = {
@@ -99,6 +101,8 @@
 				C58069B31CA7202B0012CF3F /* DetailedMemeController.swift */,
 				C580697F1CA70D4E0012CF3F /* MyCollectionViewCell.swift */,
 				C52A6C8C1CA4913B0076BAF4 /* AddMemeController.swift */,
+				C5B579261CB8080800C32F84 /* Meme.swift */,
+				C52A6C711CA48F460076BAF4 /* Products */,
 				C52A6C8E1CA4959A0076BAF4 /* darthvader@2x-iphone.png */,
 				C52A6C771CA48F460076BAF4 /* Main.storyboard */,
 				C52A6C7D1CA48F460076BAF4 /* Assets.xcassets */,
@@ -192,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C52A6C7C1CA48F460076BAF4 /* MemeMe.xcdatamodeld in Sources */,
+				C5B579271CB8080800C32F84 /* Meme.swift in Sources */,
 				C58069801CA70D4E0012CF3F /* MyCollectionViewCell.swift in Sources */,
 				C580697E1CA704BE0012CF3F /* MemesCollectionView.swift in Sources */,
 				C52A6C761CA48F460076BAF4 /* ViewController.swift in Sources */,

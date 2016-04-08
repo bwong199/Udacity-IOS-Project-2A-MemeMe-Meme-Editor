@@ -8,15 +8,9 @@
 
 import UIKit
 
-struct Meme {
-    var topText : String
-    var bottomText : String
-    var originalImage : UIImage
-    var memedImage : UIImage
-}
-
 class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+
     @IBOutlet var topTextField: UITextField!
     
     @IBOutlet var bottomTextField: UITextField!
@@ -29,28 +23,9 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     var image: UIImage!
     
-    var text1: String!
-    var text2: String!
-    
-    @IBOutlet var topLabel: UILabel!
-    
-    @IBOutlet var bottomLabel: UILabel!
     
     @IBAction func cancelButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        
-    }
-    
-    @IBAction func addTopText(sender: AnyObject) {
-        topTextField.text = sender.text
-        topLabel.text = topTextField.text
-        
-    }
-    
-    @IBAction func addBottomText(sender: AnyObject) {
-        bottomTextField.text = sender.text
-        bottomLabel.text = bottomTextField.text
-        
     }
     
     
@@ -59,22 +34,33 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
-        
-        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
-        
         setUpTextfield()
         
     }
     
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName :   UIFont(name: "HelveticaNeue-CondensedBlack", size : 40)!,
+        NSStrokeWidthAttributeName : -3.0
+    ]
+    
     func setUpTextfield(){
-        topTextField.textColor = UIColor.whiteColor()
-        topTextField.font = UIFont.boldSystemFontOfSize(16)
-        topTextField.sizeToFit()
         
-        bottomTextField.textColor = UIColor.whiteColor()
-        bottomTextField.font = UIFont.boldSystemFontOfSize(16)
+        topTextField.text = "TOP"
+        topTextField.sizeToFit()
+        topTextField.defaultTextAttributes = memeTextAttributes
+  
+        bottomTextField.text = "BOTTOM"
         bottomTextField.sizeToFit()
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if (textField.text == "TOP" || textField.text == "BOTTOM") {
+            textField.text = ""
+        }
+        textField.becomeFirstResponder()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -107,7 +93,8 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y += getKeyboardHeight(notification)
+//        view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -121,32 +108,10 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         
     }
     
-    
-    
-    
-    //    func keyboardWillShow(notification: NSNotification) {
-    //
-    //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-    //            self.view.frame.origin.y -= keyboardSize.height
-    //        }
-    //
-    //    }
-    //
-    //    func keyboardWillHide(notification: NSNotification) {
-    //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-    //            self.view.frame.origin.y += keyboardSize.height
-    //        }
-    //    }
-    
-       
-    
+   
     @IBAction func cameraBtnTapped(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
-            let cameraViewController = UIImagePickerController()
-            cameraViewController.sourceType = UIImagePickerControllerSourceType.Camera
-            cameraViewController.delegate = self
-            
-            self.presentViewController(cameraViewController, animated: true, completion: nil)
+            presentImagePicker(UIImagePickerControllerSourceType.Camera)
         } else {
             // if device doesn't have a camera button, disable the button
             cameraButton.enabled = false
@@ -156,26 +121,22 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBAction func albumButtonTapped(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
-            let cameraViewController = UIImagePickerController()
-            cameraViewController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            cameraViewController.delegate = self
-            
-            self.presentViewController(cameraViewController, animated: true, completion: nil)
+
+            presentImagePicker(UIImagePickerControllerSourceType.PhotoLibrary)
         } else {
             
         }
-        
     }
     
+    func presentImagePicker(source: UIImagePickerControllerSourceType){
+        let cameraViewController = UIImagePickerController()
+        cameraViewController.sourceType = source
+        cameraViewController.delegate = self
+        
+        self.presentViewController(cameraViewController, animated: true, completion: nil)
+    }
     
     @IBAction func shareButton(sender: AnyObject) {
-        
-        
-        //        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        //
-        //        let meme = NSEntityDescription.insertNewObjectForEntityForName("Meme", inManagedObjectContext: context) as! Meme
-        
-        
         
         let image = takeScreenshot(imageView)
         let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
@@ -198,20 +159,7 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    //    @IBAction func saveScreenshot(sender: AnyObject) {
-    //        print("screenshot pressed")
-    //        let image = takeScreenshot(imageView)
-    //        UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
-    //
-    //    }
-    
-    //    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<()>) {
-    //        dispatch_async(dispatch_get_main_queue(), {
-    //            UIAlertView(title: "Success", message: "The meme has been saved to your Camera Roll", delegate: nil, cancelButtonTitle: "Close").show()
-    //        })
-    //    }
-    
+
     func saveMemedImage() {
         //Create the meme
         _ = Meme( topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: takeScreenshot(imageView))
@@ -223,15 +171,9 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func takeScreenshot(theView: UIView) -> UIImage {
         
-        //        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0.0)
-        //
-        //
-        //        theView.drawViewHierarchyInRect(theView.bounds, afterScreenUpdates: true)
-        //        let image = UIGraphicsGetImageFromCurrentImageContext()
-        //        UIGraphicsEndImageContext()
-        
-        imageView.addSubview(topLabel)
-        imageView.addSubview(bottomLabel)
+       
+        imageView.addSubview(topTextField)
+        imageView.addSubview(bottomTextField)
         
         UIGraphicsBeginImageContext(imageView.frame.size)
         self.imageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -245,12 +187,6 @@ class AddMemeController: UIViewController, UIImagePickerControllerDelegate, UINa
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    //    func textFieldShouldReturn(textField: UITextField) -> Bool {
-    //        textField.resignFirstResponder()
-    //
-    //        return true
-    //    }
     
     
     override func viewWillDisappear(animated: Bool) {
